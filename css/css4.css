@@ -1,0 +1,42 @@
+.bar-out{
+	height:100px;
+	margin:50px;
+	text-align:center;
+}
+.bar{
+	display:inline-block;
+	margin:0;
+	padding:0;
+	height:70px;
+	width:8px;
+	vertical-align:middle;
+	background-color:#00e8ff;
+	border-radius:4px;
+	transition:all 1s;
+	animation:animate1 1s ease-in-out infinite;
+}
+.bar1{
+	animation-delay:0s;
+}
+.bar2{
+	animation-delay:.2s;
+}
+.bar3{
+	animation-delay:.4s;
+}
+.bar4{
+	animation-delay:.6s;
+}
+.bar5{
+	animation-delay:.8s;
+}
+@keyframes animate1{
+	0%{
+		height:70px;
+		background-color:#00e8ff;
+	}
+	100%{
+		height:40px;
+		background-color:#00ffa1;
+	}
+}
