@@ -2,6 +2,7 @@
 	position: relative;
 	height: 4px;
 	width: 160px;
+	margin:0 auto;
 	border-radius: 2px;
 	transition: all 1s;
 	animation-delay: 0s;
