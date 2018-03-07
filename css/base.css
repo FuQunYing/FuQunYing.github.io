@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url("http://www.w3cplus.com/download/reset.css");
+@import url("reset.css");
 /* -------------------------------------------------
  * common
  * -------------------------------------------------
@@ -43,7 +43,7 @@
     position:absolute;
 	right:0;
 	top:0;
-	font-family:'ËÎÌå';
+	font-family:'ï¿½ï¿½ï¿½ï¿½';
 }
 #header{
     text-align:center;
