@@ -1,3 +1,11 @@
+a{
+    color:#000;
+    text-decoration: none;
+}
+a:hover{
+    color: #00e8ff;
+    text-decoration: underline;
+}
 h4 {text-align:right}
 	.wave {
 		position: relative;
