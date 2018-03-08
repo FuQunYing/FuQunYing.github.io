@@ -1,0 +1,17 @@
+.demo4-squart{
+	display:inline-block;
+	height:20px;
+	width:20px;
+	background-color:#00ffa1;
+	transition:all 1s;
+	animation:demo4 1s ease infinite;
+}
+.demo4-squart1{animation-delay:0}
+.demo4-squart2{animation-delay:.2s}
+.demo4-squart3{animation-delay:.4s}
+.demo4-squart4{animation-delay:.6s}
+.demo4-squart5{animation-delay:.8s}
+@keyframes demo4{
+	0%{opacity:1;transform:rotate(0deg)}
+	100%{opacity:.1;transform:rotate(180deg)}
+}
