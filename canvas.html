@@ -3,9 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>canvas</title>
+    <style>
+        body{text-align: center}
+    </style>
 </head>
 <body>
 <h4>绘制一个验证码</h4>
-
+<canvas id="c1"></canvas>
+<script>
+    var w=120,h=30;
+    c1.width=w;
+    c1.height=h;
+    var ctx = c1.getContext('2d');
+    function rn(min,max){
+        var n=Math.random()*(max-min)+min;
+        return Math.floor(n);
+    }
+    function rc(min,max){
+        var r=rn(min,max);
+        var g=rn(min,max);
+        var b=rn(min,max);
+        return `rgb(${r},${g},${b})`;
+    }
+    ctx.fillStyle=rc(200,255);
+    ctx.fillRect(0,0,w,h);
+    var pool = "ABCDEFGHIJKLMNOPQRSTUVWXVZabsdefghijklmnopqrstuvwxyz0123456789";//创建随机文字
+    var str = "";
+    for (var i=0;i<4;i++){
+        var index = Math.floor(Math.random()*pool.length);
+        str += pool[index];
+    }
+    ctx.font = "30px SimHei";
+    ctx.fillStyle=rc(50,150);
+    ctx.textBaseline = "top";
+    ctx.fillText(str,30,0);
+    for(var i=0;i<6;i++){//绘制6条干扰线
+        ctx.strokeStyle=rc(0,255);
+        ctx.beginPath();
+        ctx.moveTo(rn(0,w),rn(0,h));
+        ctx.lineTo(rn(0,w),rn(0,h));
+        ctx.stroke();
+    }
+    for(var i=0; i<50; i++){//绘制50个干扰点
+        ctx.fillStyle = rc(0,255);
+        ctx.beginPath();
+        ctx.arc(rn(0,w),rn(0,h),1,0,2*Math.PI);
+        ctx.fill();
+    }
+</script>
 </body>
 </html>
