@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG绘图</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        svg{
+            background-color: #c4ffd0;
+        }
+    </style>
+</head>
+<body>
+<h4>
+    在画布上随机创建50个实心圆形，大小随机，位置随机，填充颜色随机，透明度随机，
+    点击某个圆形之后，它慢慢变大变淡直至从DOM上删除
+</h4>
+<svg id="s1" width="500" height="400"></svg>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+    function rc(){
+        var r = Math.floor(Math.random()*255);
+        var g = Math.floor(Math.random()*255);
+        var b = Math.floor(Math.random()*255);
+        return `rgb(${r},${g},${b})`;
+    }
+    for(var i=0;i<50;i++){
+        var circle = document.createElementNS('http://www.w3.org/2000/svg','circle');
+        circle.setAttribute('r',Math.floor(Math.random()*30+10));
+        circle.setAttribute('cx',Math.floor((Math.random()*500)));
+        circle.setAttribute('cy',Math.floor(Math.random()*400));
+        circle.setAttribute('fill',rc());
+        circle.setAttribute('fill-opacity',Math.random()+0.3);
+        s1.appendChild(circle)
+    }
+    $("#s1").on('click','circle',function(){
+        var circle = this;
+        circle.onclick = null;//当前圆不能被再次点击
+        //创建定时器，让圆变大变没
+        var t=setInterval(()=>{
+            var r = circle.getAttribute('r');
+            r*=1.05;
+            circle.setAttribute('r',r);
+            var op = circle.getAttribute('fill-opacity');
+            op *= 0.9;
+            circle.setAttribute('fill-opacity',op);
+            if(op<0.05){
+                clearInterval(t);
+                circle.remove();
+            }
+        },50)
+    })
+</script>
+</body>
+</html>
