@@ -1,0 +1,18 @@
+.demo6-squart{
+  display: inline-block;
+  height:20px;
+  width:20px;
+  background-color: #00ffa1;
+  transition:all 1s;
+  transform-origin: bottom right;
+  animation: demo6 1s ease-in infinite;
+}
+@keyframes demo6{
+  0%{opacity: 1;transform: rotate(0deg)}
+  100%{opacity: .1; transform: rotate(90deg)}
+}
+.demo6-squart1{animation-delay: 0s}
+.demo6-squart2{animation-delay: .2s}
+.demo6-squart3{animation-delay: .4s}
+.demo6-squart4{animation-delay: .6s}
+.demo6-squart5{animation-delay: .8s}
